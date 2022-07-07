@@ -1,0 +1,104 @@
+:root {
+  --main-bg-color: #121c2d;
+  --identity-color: #fff;
+  --bg-color-participant-no-video: #8891aa;
+  --bg-color-participant-name-tag: rgba(0, 0, 0, 0.5);
+  --dominant-speaker-border: #14b053;
+}
+
+html {
+  background-color: var(--main-bg-color);
+  color: var(--identity-color);
+  font-family: Inter, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 90vh;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+.participants {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.participant {
+  position: relative;
+  width: 620px;
+  height: 320px;
+  /* Handle the case when there is no video and we want to show the participant name */
+  background-color: var(--bg-color-participant-no-video);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.participant p {
+  position: absolute;
+  bottom: 7px;
+  left: 10px;
+  border-radius: 4px;
+  background: var(--bg-color-participant-name-tag);
+  padding: 3px 4px;
+  color: var(--identity-color);
+  font-size: 14px;
+  z-index: 1;
+}
+
+.participant .muted-icon {
+  position: absolute;
+  top: 0.625vw;
+  right: 0.625vw;
+  z-index: 10;
+  font-size: 2rem;
+}
+
+.participant .no-video {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.participant.has-video .no-video {
+  display: none;
+}
+
+.participant.dominant-speaker {
+  border: 3px solid var(--dominant-speaker-border);
+}
+
+.participant .participant-name {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+/* 
+  Supported resolutions 
+  landscape: "1280x720" and "1920x1080" 
+*/
+@media only screen and (min-width: 1920px) and (orientation: landscape) {
+  .participant {
+    width: 920px;
+    height: 520px;
+  }
+}

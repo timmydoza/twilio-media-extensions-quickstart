@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Participant component should render correctly when the participant has disabled their video 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "solid 3px #7BEAA5",
+      "height": "200px",
+      "margin": 0,
+      "width": "300px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <div
+    className="noVideo"
+    style={
+      Object {
+        "fontSize": "32px",
+      }
+    }
+  >
+    mockIdentity1
+  </div>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": false,
+        "kind": "video",
+        "trackName": "camera-123456",
+        "trackSid": "testVideoSid",
+      }
+    }
+  />
+  <p>
+    mockIdentity1
+  </p>
+</div>
+`;
+
+exports[`the Participant component should render correctly when the participant has switched off their video 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "none",
+      "height": "600px",
+      "margin": 3,
+      "width": "400px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <div
+    className="noVideo"
+    style={
+      Object {
+        "fontSize": "56px",
+      }
+    }
+  >
+    mockIdentity1
+  </div>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "isSwitchedOff": true,
+        "kind": "video",
+        "trackName": "camera-123456",
+        "trackSid": "testVideoSid",
+      }
+    }
+  />
+  <p>
+    mockIdentity1
+  </p>
+</div>
+`;
+
+exports[`the Participant component should render correctly when the participant has unpublished their video 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "none",
+      "height": "600px",
+      "margin": 3,
+      "width": "400px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <div
+    className="noVideo"
+    style={
+      Object {
+        "fontSize": "56px",
+      }
+    }
+  >
+    mockIdentity1
+  </div>
+  <p>
+    mockIdentity1
+  </p>
+</div>
+`;
+
+exports[`the Participant component should render correctly when the participant is not the dominant speaker 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "none",
+      "height": "100px",
+      "margin": 3,
+      "width": "200px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "video",
+        "trackName": "camera-123456",
+        "trackSid": "testVideoSid",
+      }
+    }
+  />
+  <p>
+    mockIdentity1
+  </p>
+</div>
+`;
+
+exports[`the Participant component should render correctly when the participant is the dominant speaker 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "solid 3px #7BEAA5",
+      "height": "200px",
+      "margin": 0,
+      "width": "300px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "video",
+        "trackName": "camera-123456",
+        "trackSid": "testVideoSid",
+      }
+    }
+  />
+  <p>
+    mockIdentity1
+  </p>
+</div>
+`;
+
+exports[`the Participant component when ENV_hideParticipantIdentities is true should not display the participants identity 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "none",
+      "height": "100px",
+      "margin": 3,
+      "width": "200px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "video",
+        "trackName": "camera-123456",
+        "trackSid": "testVideoSid",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`the Participant component when ENV_hideParticipantIdentities is true should not display the participants identity when their video is disabled 1`] = `
+<div
+  className="participant"
+  data-cy-participant="mockIdentity1"
+  style={
+    Object {
+      "border": "solid 3px #7BEAA5",
+      "height": "200px",
+      "margin": 0,
+      "width": "300px",
+    }
+  }
+>
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": true,
+        "kind": "audio",
+        "trackName": "microphone-123456",
+        "trackSid": "testAudioSid",
+      }
+    }
+  />
+  <div
+    className="noVideo"
+    style={
+      Object {
+        "fontSize": "32px",
+      }
+    }
+  />
+  <MediaTrack
+    track={
+      Object {
+        "isEnabled": false,
+        "kind": "video",
+        "trackName": "camera-123456",
+        "trackSid": "testVideoSid",
+      }
+    }
+  />
+</div>
+`;

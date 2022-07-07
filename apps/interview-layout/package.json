@@ -1,0 +1,26 @@
+{
+  "name": "interview-layout",
+  "version": "1.0.0",
+  "author": "tcabotvallori@twilio.com",
+  "private": false,
+  "source": "src/index.html",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "update:env": "node scripts/updateEnv.js",
+    "start": "npm run update:env && parcel src/index.html --open",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "twilio-video": "^2.21.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "parcel": "^2.6.0",
+    "rimraf": "^3.0.2",
+    "twilio": "^3.77.1"
+  },
+  "browserslist": "last 1 Chrome version",
+  "engines": {
+    "node": ">= 14"
+  }
+}

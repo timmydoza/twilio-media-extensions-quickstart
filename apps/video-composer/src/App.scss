@@ -1,0 +1,169 @@
+@function get-vw($target) {
+  $vw-context: (1280 / 100) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
+
+$sidebarParticipants: 5;
+$presentationBannerHeight: get-vw(44px);
+$aspectRatio: 9/ 16;
+$margin: get-vw(3px);
+
+p {
+  font-family: Inter, sans-serif;
+  margin: 0;
+  font-size: get-vw(16px)
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  object-fit: cover;
+}
+
+.app {
+  background: #121c2d;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &.isPresentationModeActive {
+    padding: $margin * 2;
+    box-sizing: border-box;
+
+    .mainContainer {
+      display: grid;
+      grid-template-rows: 1fr;
+      // Here we calculate the width of the participant sidebar. The sidebar should be wide enough to hold exactly 5 participants with an aspect
+      // ratio of 16:9 (accounting for margins), plus the indicator to show the "+ 1 more" indicator, which has the same height as the presentationBanner.
+      grid-template-columns: 1fr calc(
+          (100vh - #{$presentationBannerHeight} - (#{$margin} * 2)) / #{$sidebarParticipants} / #{$aspectRatio} - #{$margin}
+        );
+    }
+
+    .participantContainer {
+      position: relative;
+      align-content: center;
+      margin-top: -$margin;
+      margin-right: -$margin * 2;
+      margin-left: $margin;
+
+      .participant:nth-child(n + #{$sidebarParticipants + 1}) {
+        display: none;
+      }
+    }
+  }
+}
+
+.presentationBanner {
+  height: $presentationBannerHeight;
+  margin-bottom: $margin * 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: get-vw(4px);
+  background: #394762;
+  color: white;
+  display: flex;
+}
+
+.mainContainer {
+  position: relative;
+  flex: 1;
+}
+
+.presentationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: get-vw(4px);
+  height: calc(100vh - #{$margin * 4});
+
+  .presentationVideoContainer {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-height: 0;
+
+    div {
+      width: 100%;
+      max-height: 100%;
+      border-radius: get-vw(4px);
+      overflow: hidden;
+    }
+
+    video {
+      max-height: calc(100vh - #{$presentationBannerHeight} - #{$margin * 8});
+      object-fit: contain;
+    }
+  }
+}
+
+.participantContainer {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+
+  .participant:nth-child(n + 10) {
+    display: none;
+  }
+}
+
+.participantCountContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: $presentationBannerHeight + $margin * 2;
+}
+
+.participant {
+  position: relative;
+  overflow: hidden;
+  border-radius: get-vw(4px);
+
+  p {
+    position: absolute;
+    bottom: get-vw(7.2px);
+    left: get-vw(7.2px);
+    border-radius: get-vw(4px);
+    background: rgba(0, 0, 0, 0.5);
+    padding: get-vw(2.88px) get-vw(4.32px);
+    margin: 0;
+    color: white;
+    font-size: get-vw(14.4px);
+    z-index: 1;
+  }
+
+  svg {
+    position: absolute;
+    top: get-vw(8px);
+    right: get-vw(8px);
+    z-index: 10;
+  }
+}
+
+.noVideo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #8891aa;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  text-align: center;
+}

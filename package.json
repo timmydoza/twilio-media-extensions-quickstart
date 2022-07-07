@@ -1,0 +1,42 @@
+{
+  "name": "twilio-media-extensions-quickstart",
+  "version": "1.0.0",
+  "description": "Twilio Media Extensions sample applications for quickstart",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run build --workspace @media-extensions/commons",
+    "test:video": "npm run test:ci --workspace video-composer",
+    "test:commons": "npm run test --workspace @media-extensions/commons",
+    "test": "npm run test:video && npm run test:commons",
+    "build:video": "npm run build --workspace video-composer",
+    "build:interview": "npm run build --workspace interview-layout",
+    "postbuild:interview": "node scripts/prepare-build.js apps/interview-layout/dist",
+    "postbuild:video": "node scripts/prepare-build.js apps/video-composer/build",
+    "deploy:video": "npm run build:video && twilio-run deploy --service-name video-composer-quickstart --override-existing-project --cwd apps/video-composer --assets-folder build --no-functions --env ../../.env",
+    "deploy:interview": "npm run build:interview && twilio-run deploy --service-name interview-layout-quickstart --override-existing-project --cwd apps/interview-layout --assets-folder dist --no-functions --env ../../.env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twilio/twilio-media-extensions-quickstart.git"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/twilio/twilio-media-extensions-quickstart#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.6.0",
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "fs-extra": "^10.0.0",
+    "twilio": "^3.67.2",
+    "twilio-run": "^3.2.2"
+  }
+}
