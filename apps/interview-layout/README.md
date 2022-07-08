@@ -171,6 +171,6 @@ When you create a MediaProcessor, you should provide the URL of the deployed (th
 ```shell
 curl -X POST 'https://media.twilio.com/v1/MediaProcessors' \
   -u 'SKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:your_api_key_secret' \
-  -d 'Extension="interview-layout-quickstart-5226-dev.twil.io"'\
+  -d 'Extension="https://interview-layout-quickstart-5226-dev.twil.io"'\
   ...
 ```
