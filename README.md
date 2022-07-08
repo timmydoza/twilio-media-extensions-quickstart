@@ -20,7 +20,7 @@ To use a Twilio Media Extension, specify the Media Extension name your applicati
 ```shell
 curl -X POST 'https://media.twilio.com/v1/MediaProcessors' \
   -u 'SKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:your_api_key_secret' \
-  -d 'Extension="video-composer-5226-dev.twil.io"' \
+  -d 'Extension="https://video-composer-5226-dev.twil.io"' \
   -d 'ExtensionContext={"room": {"name": "RM123"}, "outputs": ["VJXXX"]}'
 ```
 
